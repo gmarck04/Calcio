@@ -1,0 +1,14 @@
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\bin\Debug\netcoreapp3.1\Calcio.exe
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\bin\Debug\netcoreapp3.1\Calcio.deps.json
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\bin\Debug\netcoreapp3.1\Calcio.runtimeconfig.json
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\bin\Debug\netcoreapp3.1\Calcio.runtimeconfig.dev.json
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\bin\Debug\netcoreapp3.1\Calcio.dll
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\bin\Debug\netcoreapp3.1\Calcio.pdb
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.csproj.AssemblyReference.cache
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.GeneratedMSBuildEditorConfig.editorconfig
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.AssemblyInfoInputs.cache
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.AssemblyInfo.cs
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.csproj.CoreCompileInputs.cache
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.dll
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.pdb
+G:\Il mio Drive\Portatile\Github\Calcio\Calcio\Calcio\obj\Debug\netcoreapp3.1\Calcio.genruntimeconfig.cache
