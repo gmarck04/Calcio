@@ -55,12 +55,9 @@ namespace Calcio
                 }
             }
         }
-        public void Mostra_Calciatori()
+        public List<Calciatori> Mostra_Calciatori()
         {
-            for (int i = 0; i < Lista_calciatori.Count; i++)
-            {
-                Console.WriteLine(Lista_calciatori[i].ToString()); //da modificare...
-            }
+                return Lista_calciatori;
         }
         public int Calcola_punti()
         {
@@ -137,6 +134,7 @@ namespace Calcio
     {
         public static string file = AppDomain.CurrentDomain.BaseDirectory + "/Login.txt";
         public static List<Squadra> Lista_di_squadre = new List<Squadra>();
+
         static void Main(string[] args)
         {
             if (Controllo_salvataggio() == 0)
@@ -190,31 +188,23 @@ namespace Calcio
                 switch (scelta)
                 {
                     case 1:
-                        {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome)].Aggiungi_partite_vinte();
+                        {                            
+                            Lista_di_squadre[Id_Squadre(Squadra())].Aggiungi_partite_vinte();
                         }
                         break;
                     case 2:
                         {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome)].Aggiungi_partite_pareggiate();
+                            Lista_di_squadre[Id_Squadre(Squadra())].Aggiungi_partite_pareggiate();
                         }
                         break;
                     case 3:
                         {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome)].Aggiungi_partite_perse();
+                            Lista_di_squadre[Id_Squadre(Squadra())].Aggiungi_partite_perse();
                         }
                         break;
                     case 4:
                         {
                             int gol;
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome = Console.ReadLine();
                             Console.WriteLine("Inserisci il numero di gol fatti");
                             bool controllo = int.TryParse(Console.ReadLine(), out gol);
                             while (!controllo)
@@ -222,14 +212,12 @@ namespace Calcio
                                 Console.WriteLine("Errato. Inserisci il numero di gol fatti");
                                 controllo = int.TryParse(Console.ReadLine(), out gol);
                             }
-                            Lista_di_squadre[Id_Squadre(nome)].Gol_fatti(gol);
+                            Lista_di_squadre[Id_Squadre(Squadra())].Gol_fatti(gol);
                         }
                         break;
                     case 5:
                         {
                             int gol;
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome = Console.ReadLine();
                             Console.WriteLine("Inserisci il numero di gol subiti");
                             bool controllo = int.TryParse(Console.ReadLine(), out gol);
                             while (!controllo)
@@ -237,32 +225,29 @@ namespace Calcio
                                 Console.WriteLine("Errato. Inserisci il numero di gol subiti");
                                 controllo = int.TryParse(Console.ReadLine(), out gol);
                             }
-                            Lista_di_squadre[Id_Squadre(nome)].Gol_subiti(gol);
+                            Lista_di_squadre[Id_Squadre(Squadra())].Gol_subiti(gol);
                         }
                         break;
                     case 6:
                         {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome_squadra = Console.ReadLine();
                             Console.WriteLine("Inserisci nome del giocatore da aggiungere");
                             string nome_calciatore = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome_squadra)].Aggiungi_Calciatore(new Calciatori(nome_calciatore));
+                            Lista_di_squadre[Id_Squadre(Squadra())].Aggiungi_Calciatore(new Calciatori(nome_calciatore));
                         }
                         break;
                     case 7:
                         {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome_squadra = Console.ReadLine();
                             Console.WriteLine("Inserisci nome del giocatore da riumovere");
                             string nome_calciatore = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome_squadra)].Rimuovi_Calciatore(nome_calciatore);
+                            Lista_di_squadre[Id_Squadre(Squadra())].Rimuovi_Calciatore(nome_calciatore);
                         }
                         break;
                     case 8:
                         {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome_squadra = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome_squadra)].Mostra_Calciatori();
+                            for (int i = 0; i < Lista_di_squadre[Id_Squadre(Squadra())].Mostra_Calciatori().Count; i++)
+                            {
+                                Console.WriteLine(Lista_di_squadre[Id_Squadre(Squadra())].Mostra_Calciatori()[i]);
+                            }
                         }
                         break;
                     case 9:
@@ -282,9 +267,7 @@ namespace Calcio
                         break;
                     case 12:
                         {
-                            Console.WriteLine("Inserisci la squadra");
-                            string nome = Console.ReadLine();
-                            Lista_di_squadre[Id_Squadre(nome)].Reset();
+                            Lista_di_squadre[Id_Squadre(Squadra())].Reset();
                         }
                         break;
 
@@ -305,6 +288,37 @@ namespace Calcio
             return scelta;
         }
 
+        public static string Squadra()
+        {
+            string nome_squadra = "";
+            bool controllo = false;
+            do
+            {
+                Console.WriteLine("Inserisci la squadra");
+                string nome = Console.ReadLine();
+                for (int i = 0; i < Lista_di_squadre.Count; i++)
+                {
+                    if (Lista_di_squadre[i].Nome_squadra == nome)
+                    {
+                        nome_squadra = nome;
+                        controllo = true;
+                    }
+                }
+                if (controllo == false)
+                {
+                    Console.Clear();
+                    Console.WriteLine("La sqaudra inserita non esiste");
+                    Console.WriteLine("Le squadre disponibili sono:");
+                    for (int i = 0; i < Lista_di_squadre.Count; i++)
+                    {
+                        Console.WriteLine(Lista_di_squadre[i].ToString());
+                    }
+                    controllo = false;
+                }
+            } while (controllo == false);
+
+            return nome_squadra;
+        }
         public static int Id_Squadre(string nome)
         {
             for (int i = 0; i < Lista_di_squadre.Count; i++)
